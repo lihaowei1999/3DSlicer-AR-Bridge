@@ -48,19 +48,8 @@ class SlicerUnityConnServiceNode:
 class SlicerUnityConnLocalDataNode:
     def __init__(self):
         ## preoperative planning
-        # self.paintableHeadSurface = VertexMeshRender("paintableHeadSkinSurface")
         self.paintableSurfaceList = {}  # name -> VertexMeshRender
         self.paintableSurfaceCache = {} # name -> MeshRenderStatCache
-
-        self.toolList = {} # name -> toolConfig
-        self.objectToolAttachCache = [] # type, name, toolName
-
-        ## intraoperative guiding
-        self.defaultReconMeshStoreLocate = "xx"  # temp path to store recon result
-
-        self.reconPointCloudVisualizor = PointCloudVisualizeManager()  # point cloud not as a node
-        self.reconResultMeshVisualizor = ModelVisualizeManager(nodeName="node")
-        self.reconResultMeshVisualizor.SetFileName(self.defaultReconMeshStoreLocate)
 
 def DoForceRender():
     slicer.util.forceRenderAllViews()
