@@ -16,9 +16,7 @@ def GetDataFromMarkerNode(node):
     point_positions = np.zeros((node.GetNumberOfControlPoints(), 3))
     for i in range(node.GetNumberOfControlPoints()):
         node.GetNthControlPointPosition(i, point_positions[i])
-
-    # print(point_positions)
-
+        
     return point_positions
 
 
@@ -36,13 +34,10 @@ class MarkerReceiverOneTime:
         self.sock = None
         self.topic = topic
 
-        # loop and functions
         self.interv = interv
         self.callBacks = {}
-        # should be locked, but anyway, possiblity is extremely low
         self.callBacktoRemove = []
 
-        # stat
         self.inited = False
         self.shouldTerminate = False
 

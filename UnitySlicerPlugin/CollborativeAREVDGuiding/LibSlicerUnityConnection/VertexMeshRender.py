@@ -120,7 +120,6 @@ class VertexMeshRender:
         else:
             transformNP = np.diag([1., 1., 1., 1.]).astype('float64')
 
-        # do init
         self.Initiate(vertex_array, face_array, color_array)
 
         transformvtk = vtk.vtkMatrix4x4()
@@ -130,13 +129,6 @@ class VertexMeshRender:
 
         self.meshTransformNode.SetMatrixTransformToParent(transformvtk)
         self.meshNode.SetAndObserveTransformNodeID(self.meshTransformNode.GetID())
-
-        # set visibility
-        # originVisNode = inputModelNode.GetDisplayNode()
-        # originVisNode.SetVisibility(False)
-        #
-        # newVisNode = self.meshNode.GetDisplayNode()
-        # newVisNode.SetVisibility(True)
 
     def SetOpacity(self, sigma):
         self.meshNode.GetDisplayNode().SetOpacity(sigma)
